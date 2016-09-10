@@ -1,2 +1,3 @@
-# Smart-Trash-Bins
-Smarte Mülleimer (Geoinformatics in transdisciplinary education)
+# Smart-Trash-Bins (Server-group)
+
+Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
