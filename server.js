@@ -40,7 +40,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Check for REST-API
 if (mode.toLowerCase() === "api") {
-    console.log(colors.orange(new Date() + " Mode: Webserver & REST-API"));
+    console.log(colors.green(new Date() + " Mode: Webserver & REST-API"));
 
     // Load dependencies
     var trash_bins = require('./routes/trash_bins');
@@ -51,11 +51,11 @@ if (mode.toLowerCase() === "api") {
     app.use('/api', measurements);
 
 } else {
-    console.log(colors.orange(new Date() + " Mode: Simple webserver"));
+    console.log(colors.green(new Date() + " Mode: Simple webserver"));
 }
 
 // Start Webserver
 var httpServer = http.createServer(app);
 httpServer.listen(httpPort, function() {
-    console.log(colors.orange(new Date() + " HTTP-Server is listening at port " + httpPort));
+    console.log(colors.green(new Date() + " HTTP-Server is listening at port " + httpPort));
 });
