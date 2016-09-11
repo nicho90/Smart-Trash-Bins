@@ -1,0 +1,42 @@
+{
+    "name": "giitde",
+    "version": "1.0.0",
+    "description": "GI Science in Transdisciplinary Education",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nicho90/Smart-Trash-Bins.git"
+    },
+    "keywords": [
+        "gi",
+        "science",
+        "transdisciplinary",
+        "education",
+        "smart",
+        "rubbish",
+        "bins",
+        "smart",
+        "trash",
+        "bins"
+    ],
+    "author": "Nicholas Schiestel",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nicho90/Smart-Trash-Bins/issues"
+    },
+    "homepage": "https://github.com/nicho90/Smart-Trash-Bins#readme",
+    "dependencies": {
+        "ajv": "^4.5.0",
+        "async": "^2.0.1",
+        "body-parser": "^1.15.2",
+        "colors": "^1.1.2",
+        "commander": "^2.9.0",
+        "express": "^4.14.0",
+        "http": "0.0.0",
+        "pg": "^6.1.0",
+        "underscore": "^1.8.3"
+    }
+}
