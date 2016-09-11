@@ -1,4 +1,4 @@
-# Smart-Trash-Bins (Server-group)
+# Smart-Trash-Bins
 
 Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
 
