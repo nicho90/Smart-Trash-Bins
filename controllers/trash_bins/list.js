@@ -22,9 +22,9 @@ exports.request = function(req, res) {
 
             // Check for parameters
             if (req.query.lat && req.query.lng) {
-                query = ""; // TODO:
+                query = ""; // TODO: noch nicht!
             } else {
-                query = ""; // TODO:
+                query = ""; // TODO: List all trash_bins
             }
 
             // Database query

@@ -19,7 +19,7 @@ program
     .parse(process.argv);
 
 if (program.db_user !== "username") {
-    database_url = 'postgres://' + program.db_user + '@localhost:5432/giitde';
+    database_url = 'postgres://' + program.db_user + '@localhost:5432/smarttrashbins';
 }
 if (program.mode !== "mode") {
     mode = program.mode;
