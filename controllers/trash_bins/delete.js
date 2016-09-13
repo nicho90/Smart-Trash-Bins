@@ -17,7 +17,7 @@ exports.request = function(req, res) {
         } else {
 
             // Prepare query
-            var query = ""; // TODO: Check if Trash Bin exists with requested trash_bin_id
+            var query = "SELECT id FROM trashbin WHERE id=$1;"; // TODO: Check if Trash Bin exists with requested trash_bin_id
 
             // Database query
             client.query(query, [
@@ -37,7 +37,7 @@ exports.request = function(req, res) {
                     } else {
 
                         // Prepare query
-                        var query = ""; // TODO: Delete the Trash Bin
+                        var query = "DELETE FROM trashbin WHERE id= $1;"; // TODO: Delete the Trash Bin
 
                         // Database query
                         client.query(query, [

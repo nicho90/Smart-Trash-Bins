@@ -24,7 +24,7 @@ exports.request = function(req, res) {
             if (req.query.lat && req.query.lng) {
                 query = ""; // TODO: noch nicht!
             } else {
-                query = ""; // TODO: List all trash_bins
+                query = "SELECT * FROM trashbin;"; // TODO: List all trash_bins
             }
 
             // Database query
