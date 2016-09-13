@@ -1,0 +1,12 @@
+{
+  "name": "smart-trash-bins",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "leaflet": "^0.7.7",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
