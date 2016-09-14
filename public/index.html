@@ -24,7 +24,7 @@
 </head>
 
 <body onload="">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#"><span style="color:#00cc00">Smart Trash Bins</span> <span class="glyphicon glyphicon-trash"></a>
@@ -40,7 +40,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#"><span class="glyphicon glyphicon-home"
                          aria-hidden="true"></span> Home</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-info-sign"
+          <li><a role="button" data-toggle="modal" data-target="#aboutModal"><span class="glyphicon glyphicon-info-sign"
                          aria-hidden="true"></span> About</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -76,6 +76,26 @@
 
     </div>
   </nav>
+
+<div id="aboutModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">About modal</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 
