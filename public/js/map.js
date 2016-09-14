@@ -5,6 +5,24 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// var legend = L.control({position: 'bottomright'});
+
+// legend.onAdd = function (map) {
+
+//     var div = L.DomUtil.create('div', 'info legend'),
+//     grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+//     labels = [];
+
+//     // loop through our density intervals and generate a label with a colored square for each interval
+//     for (var i = 0; i < grades.length; i++) {
+//         div.innerHTML +=
+//             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+//             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+// }
+
+// return div;
+// };
+
 // Creates a red marker with the coffee icon
 var redMarker = L.AwesomeMarkers.icon({
     icon: 'trash',
@@ -21,17 +39,15 @@ var orangeMarker = L.AwesomeMarkers.icon({
     markerColor: 'orange'
 });
 
-L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
-
 var greenMarker = L.AwesomeMarkers.icon({
-    icon: 'trash-o',
+    icon: 'folder-close',
     markerColor: 'green'
 });
 
-L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
+// L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
 
 var whiteMarker = L.AwesomeMarkers.icon({
-    icon: 'trash',
+    icon: 'folder-close',
     markerColor: 'white',
     iconColor: 'black'
 });
@@ -48,8 +64,21 @@ L.marker([51.963377, 7.625153], { icon: whiteMarker }).addTo(map)
     .bindPopup('Dieser Mülleimer ist praktisch leer!');
 
 function init() {
+     $.ajax({
+        type : "GET",
+        dataType : "json",
+        url : "http://giv-project7.uni-muenster.de:5000/api/trash_bins",
+        success: function(data){
+           console.log(data);
+           for(i=0;i<=data.length;i++)
+            {
 
+           }
+     }
+});
 }
+
+init();
 
 // var greenIcon = L.icon({
 //     iconUrl: './images/1tonne.png',
