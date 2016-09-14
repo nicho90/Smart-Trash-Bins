@@ -28,7 +28,7 @@ exports.request = function(req, res) {
             } else {
 
                 // Prepare Query
-                var query = ""; // TODO: Check if Trash Bin exists with requested trash_bin_id
+                var query = "SELECT * FROM trashbin WHERE id=$1;"; // TODO: Check if Trash Bin exists with requested trash_bin_id
 
                 // Database query
                 client.query(query, [
@@ -48,18 +48,20 @@ exports.request = function(req, res) {
                         } else {
 
                             var trash_bin = result.rows[0];
-                            var measured_filling_height = trash_bin.filling_height - req.body.measured_distance;
-                            if (measured_filling_height < 0) {
-                                measured_filling_height = 0;
+                            var waste_height = trash_bin.sensor_height - trash_bin.measuring_height - req.body.measured_distance;
+                            if (waste_height < 0) {
+                                waste_height = 0;
                             }
 
                             // Prepare Query
-                            var query = ""; // TODO: Create a new Measurement for the Trash Bin
+                            var query = "INSERT INTO measurements (timestep,waste_height,emp_id) " +
+                              "VALUES (now(),$1,$2) " +
+                              "RETURNING *;"; // TODO: Create a new Measurement for the Trash Bin
 
                             // Database query
                             client.query(query, [
+                                waste_height,
                                 req.params.trash_bin_id
-                                // TODO: Add parameters
                             ], function(err, result) {
                                 done();
 
