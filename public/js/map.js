@@ -6,7 +6,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 
 // Legende
-var legend = L.control({position: 'bottomright'});
+/*var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
 
@@ -18,7 +18,7 @@ legend.onAdd = function (map) {
     div.innerHTML = str;
     return div;
 
-};
+};*/
 
 
 // Create marker function
