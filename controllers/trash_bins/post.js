@@ -28,11 +28,26 @@ exports.request = function(req, res) {
             } else {
 
                 // Prepare Query
-                var query = // TODO: Create a new Trash Bin
+                var query ="INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red, picture) " +
+                  "VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) " +
+                  "RETURNING *;"; // TODO: Create a new Trash Bin
 
                 // Database query
                 client.query(query, [
-                    // TODO: Add parameters
+                    req.body.latitude,
+                    req.body.longitude,
+                    req.body.wastetype,
+                    req.body.size,
+                    req.body.trashcan,
+                    req.body.owner,
+                    req.body.comment,
+                    req.body.hight,
+                    req.body.sensor_height,
+                    req.body.measuring_height,
+                    req.body.green,
+                    req.body.orange,
+                    req.body.red,
+		    req.body.picture
                 ], function(err, result) {
                     done();
 

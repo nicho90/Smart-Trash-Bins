@@ -22,9 +22,9 @@ exports.request = function(req, res) {
 
             // Check for parameters
             if (req.query.lat && req.query.lng) {
-                query = ""; // TODO:
+                query = ""; // TODO: noch nicht!
             } else {
-                query = ""; // TODO:
+                query = "SELECT * FROM trashbin;"; // TODO: List all trash_bins
             }
 
             // Database query
@@ -44,11 +44,11 @@ exports.request = function(req, res) {
                         async.forEachOf(trash_bins, function(trash_bin, key, callback) {
 
                                 // Prepare query
-                                var query = ""; // TODO:
+                                var query = "SELECT * FROM measurements WHERE emp_id=$1 ORDER BY measuring_id DESC LIMIT 1; "; // TODO:
 
                                 // Database query
                                 client.query(query, [
-                                    trash_bin.trash_bin_id
+                                    trash_bin.id
                                 ], function(err, result) {
                                     done();
 
@@ -56,14 +56,12 @@ exports.request = function(req, res) {
                                         callback(err);
                                     } else {
 
+                                      console.log(result.rows);
+
                                         // Check if Measurement exists
                                         if (result.rows.length === 0) {
                                             _.extend(trash_bins[key], {
-                                                timestamp: null,
-                                                measured_distance: null,
-                                                measured_distance_unit: null,
-                                                measured_filling_height: null,
-                                                measured_filling_height_unit: null
+                                                timestep: null
                                             });
                                         } else {
                                             _.extend(trash_bins[key], result.rows[0]);
