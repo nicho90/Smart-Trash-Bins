@@ -14,7 +14,8 @@ sensor_height INT,
 measuring_height INT,
 green DECIMAL,
 orange DECIMAL,
-red DECIMAL
+red DECIMAL,
+picture TEXT
 );
 
 CREATE TABLE measurements(
@@ -26,9 +27,9 @@ emp_id int REFERENCES trashbin (id)ON DELETE CASCADE
 SELECT * FROM trashbin;
 CREATE VIEW measurements_view AS SELECT * FROM measurements;
 SELECT * FROM measurements_view;
-INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red) VALUES (51.955549,7.612711,'Papier', 30, 'Öffentliche Mülltonne','Münster','hier', 75,20,20,0,0,0);
-INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red) VALUES (51.955549,7.612711,'GelberSack', 30, 'Öffentliche Mülltonne','Münster','hier', 75,20,20,0,0,0);
-INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red) VALUES (51.955549,7.612711,'Restmüll', 40, 'Öffentliche Mülltonne','Münster','hier', 100,20,20,0,0,0);
+INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red, picture) VALUES (51.955549,7.612711,'Papier', 30, 'Öffentliche Mülltonne','Münster','hier', 75,20,20,50,65,90,'https://upload.wikimedia.org/wikipedia/commons/9/9a/Hamburg-M%C3%BClleimer_01.jpg');
+INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red, picture) VALUES (51.963667,7.609081,'GelberSack', 30, 'Öffentliche Mülltonne','Münster','hier', 75,20,20,50,65,90,'https://upload.wikimedia.org/wikipedia/commons/9/9a/Hamburg-M%C3%BClleimer_01.jpg');
+INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red, picture) VALUES ( 51.960462,7.622394,'Restmüll', 40, 'Öffentliche Mülltonne','Münster','hier', 75,20,20,50,65,90,'https://upload.wikimedia.org/wikipedia/commons/9/9a/Hamburg-M%C3%BClleimer_01.jpg');
 INSERT INTO measurements (timestep, waste_height, emp_id) VALUES (now(), 30, 1);
 INSERT INTO measurements (timestep, waste_height, emp_id) VALUES (now(), 40, 2);
 INSERT INTO measurements (timestep, waste_height, emp_id) VALUES (now(), 50, 3);

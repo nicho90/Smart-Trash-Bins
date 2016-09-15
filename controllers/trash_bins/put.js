@@ -48,7 +48,7 @@ exports.request = function(req, res) {
                         } else {
 
                             // Prepare query
-                            var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14 WHERE id=$1 RETURNING *;" // TODO: Update all attributes of the Trash Bin
+                            var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14, picture=$15 WHERE id=$1 RETURNING *;" // TODO: Update all attributes of the Trash Bin
 
                             // Database query
                             client.query(query,
@@ -65,7 +65,8 @@ exports.request = function(req, res) {
                                 req.body.measuring_height,
                                 req.body.green,
                                 req.body.orange,
-                                req.body.red
+                                req.body.red,
+                                req.body.picture
                             ], function(err, result) {
                                 done();
 
