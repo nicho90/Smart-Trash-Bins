@@ -4,7 +4,7 @@ var router = express.Router();
 var list = require('../controllers/trash_bins/list');
 var post = require('../controllers/trash_bins/post');
 var get = require('../controllers/trash_bins/get');
-// var put = require('../controllers/trash_bins/put');
+var put = require('../controllers/trash_bins/put');
 var del = require('../controllers/trash_bins/delete');
 
 
@@ -18,7 +18,7 @@ router.post('/trash_bins', post.request);
 router.get('/trash_bins/:trash_bin_id', get.request);
 
 // PUT
-// router.put('/trash_bins/:trash_bin_id', put.request);
+router.put('/trash_bins/:trash_bin_id', put.request);
 
 // DELETE
 router.delete('/trash_bins/:trash_bin_id', del.request);
