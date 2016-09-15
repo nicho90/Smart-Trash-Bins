@@ -64,18 +64,17 @@ L.marker([51.963377, 7.625153], { icon: whiteMarker }).addTo(map)
     .bindPopup('Dieser Mülleimer ist praktisch leer!');
 
 function init() {
-     $.ajax({
+    $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://giv-project7.uni-muenster.de:5000/api/trash_bins",
+        url : "http://giv-project7.uni-muenster.de:5000/api/trash_bins?latest_measurements=true",
         success: function(data){
-           console.log(data);
-           for(i=0;i<=data.length;i++)
-            {
+            console.log(data);
+            for(i=0;i<=data.length;i++) {
 
-           }
-     }
-});
+            }
+        }
+    });
 }
 
 init();
