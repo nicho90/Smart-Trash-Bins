@@ -56,8 +56,6 @@ exports.request = function(req, res) {
                                         callback(err);
                                     } else {
 
-                                      console.log(result.rows);
-
                                         // Check if Measurement exists
                                         if (result.rows.length === 0) {
                                             _.extend(trash_bins[key], {

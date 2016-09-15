@@ -12,8 +12,6 @@ var validate = ajv.compile(require('../../models/measurement'));
 // POST
 exports.request = function(req, res) {
 
-    console.log(req.body);
-
     // Validate input
     if (!validate(req.body)) { // TODO: Check if all parameters were sent
 

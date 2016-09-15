@@ -53,11 +53,11 @@ function createMarker(trashbin) {
     }
 
     //check for colors
-    if (trashbin.waste_hight <= trashbin.green) {
+    if (trashbin.waste_height <= trashbin.green) {
         markerSettings.markerColor = 'green';
-    } else if (trashbin.wastehight <= trashbin.orange) {
+    } else if (trashbin.waste_height <= trashbin.orange) {
         markerSettings.markerColor = 'orange';
-    } else if (trashbin.waste_hight <= trashbin.red) {
+    } else if (trashbin.waste_height <= trashbin.red) {
         markerSettings.markerColor = 'red';
     } else {
         markerSettings.markerColor = 'red';
