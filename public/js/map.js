@@ -67,7 +67,7 @@ function init() {
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://giv-project7.uni-muenster.de:5000/api/trash_bins?latest_measurements=true",
+        url : "http://giv-project7.uni-muenster.de:5000/api/trash_bins?latest_measurement=true",
         success: function(data){
             console.log(data);
             for(i=0;i<=data.length;i++) {
