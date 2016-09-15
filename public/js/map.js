@@ -4,7 +4,6 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-
 // Legende
 /*var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
@@ -15,32 +14,45 @@ legend.onAdd = function (map) {
     str = str + '<i style="background:orange"></i> Fast voll<br>';
     str = str + '<i style="background:red"></i> Voll';
 
-    div.innerHTML = str;
-    return div;
-
+//     var str = '<b><u>Legende</u>:</b>';
+//     str = str + '<i style="background:green"></i> Leer<br>';
+//     str = str + '<i style="background:orange"></i> Fast voll<br>';
+//     str = str + '<i style="background:red"></i> Voll';
 };*/
 
+
+// };
 
 // Create marker function
 function createMarker(trashbin) {
 
     var markerSettings = {
+        icon: null,
         iconColor: 'black'
     };
-    if (trashbin.wasttype == 'Papier') {
+
+    //check for icon
+    if (trashbin.wastetype == 'Papier') {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
         markerSettings.icon = 'files-o';
-    } else if (trashbin.wasttype == 'GelberSack') {
+    } else if (trashbin.wastetype == 'GelberSack') {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
         markerSettings.icon = 'recycle';
-    } else if (trashbin.wasttype == 'Restmüll') {
+    } else if (trashbin.wastetype == 'Restmüll') {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
         markerSettings.icon = 'trash';
-    } else if (trashbin.wasttype == 'Glas') {
+    } else if (trashbin.wastetype == 'Glas') {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
         markerSettings.icon = 'glass';
-    } else if (trashbin.wasttype == 'Bio') {
-        markerSettings.icon = 'apple';
+    } else if (trashbin.wastetype == 'Bio') {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
+        markerSettings.icon = 'glyphicon apple';
     } else {
+        L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
         markerSettings.icon = 'trash';
     }
 
+    //check for colors
     if (trashbin.waste_hight <= trashbin.green) {
         markerSettings.markerColor = 'green';
     } else if (trashbin.wastehight <= trashbin.orange) {
@@ -51,7 +63,7 @@ function createMarker(trashbin) {
         markerSettings.markerColor = 'red';
     }
 
-    console.log(markerSettings);
+    // console.log(markerSettings);
 
     var marker = L.AwesomeMarkers.icon({
         icon: markerSettings.icon,
@@ -70,7 +82,7 @@ function init() {
         url: "http://giv-project7.uni-muenster.de:5000/api/trash_bins?latest_measurement=true",
         success: function(data) {
             console.log(data);
-            for (i = 0; i <= data.length; i++) {
+            for (i = 0; i < data.length; i++) {
                 L.marker([data[i].latitude, data[i].longitude], {
                     icon: createMarker(data[i])
                 })
