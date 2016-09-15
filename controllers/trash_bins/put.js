@@ -28,7 +28,7 @@ exports.request = function(req, res) {
             } else {
 
                 // Prepare query
-                var query = ""; // TODO: Check if Trash Bin exists with requested trash_bin_id
+                var query = "SELECT id FROM trashbin WHERE id=$1;"; // TODO: Check if Trash Bin exists with requested trash_bin_id
 
                 // Database query
                 client.query(query, [
@@ -48,14 +48,24 @@ exports.request = function(req, res) {
                         } else {
 
                             // Prepare query
-                            var query = ""; // TODO: Update all attributes of the Trash Bin
-                            
+                            var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14 WHERE id=$1 RETURNING *;" // TODO: Update all attributes of the Trash Bin
+
                             // Database query
-                            client.query(query, [
+                            client.query(query,
                                 req.params.trash_bin_id,
-                                req.body.description,
-                                req.body.filling_height,
-                                req.body.capacity
+                                req.body.latitude,
+                                req.body.longitude,
+                                req.body.wastetype,
+                                req.body.size,
+                                req.body.trashcan,
+                                req.body.owner,
+                                req.body.comment,
+                                req.body.hight,
+                                req.body.sensor_height,
+                                req.body.measuring_height,
+                                req.body.green,
+                                req.body.orange,
+                                req.body.red
                             ], function(err, result) {
                                 done();
 
