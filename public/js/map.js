@@ -36,9 +36,9 @@ function createMarker(trashbin) {
     } else if (trashbin.wasttype == 'Glas') {
         markerSettings.icon = 'glass';
     } else if (trashbin.wasttype == 'Bio') {
-        markerSettings.icon = 'glyphicon glyphicon-apple';
+        markerSettings.icon = 'apple';
     } else {
-        markerSettings.icon = 'fa fa-trash';
+        markerSettings.icon = 'trash';
     }
 
     if (trashbin.waste_hight <= trashbin.green) {
