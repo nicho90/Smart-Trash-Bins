@@ -5,17 +5,21 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Legende
-// var legend = L.control({position: 'bottomright'});
-// legend.onAdd = function (map) {
-//     var div = L.DomUtil.create('div', 'info legend');
+/*var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+
+    var str = '<b><u>Legende</u>:</b>';
+    str = str + '<i style="background:green"></i> Leer<br>';
+    str = str + '<i style="background:orange"></i> Fast voll<br>';
+    str = str + '<i style="background:red"></i> Voll';
 
 //     var str = '<b><u>Legende</u>:</b>';
 //     str = str + '<i style="background:green"></i> Leer<br>';
 //     str = str + '<i style="background:orange"></i> Fast voll<br>';
 //     str = str + '<i style="background:red"></i> Voll';
+};*/
 
-//     div.innerHTML = str;
-//     return div;
 
 // };
 
@@ -80,9 +84,10 @@ function init() {
             console.log(data);
             for (i = 0; i < data.length; i++) {
                 L.marker([data[i].latitude, data[i].longitude], {
-                        icon: createMarker(data[i])
-                    }).addTo(map)
-                    .bindPopup('<b>Standort</b>: ' + data[i].comment + '<br><img src="' + data[i].picture + '" class="picture">');
+                    icon: createMarker(data[i])
+                })
+                .bindPopup('<h1>Standort: ' + data[i].comment + '</h1><img src="' + data[i].picture + '" class="picture"/>')
+                .addTo(map);
             }
         }
     });
