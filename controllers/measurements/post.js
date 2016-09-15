@@ -12,7 +12,10 @@ var validate = ajv.compile(require('../../models/measurement'));
 // POST
 exports.request = function(req, res) {
 
+    console.log(req);
+
     // Validate input
+    /*
     if (!validate(req.body)) { // TODO: Check if all parameters were sent
 
         console.error(colors.red('Validation error:', validate.errors[0].message));
@@ -68,16 +71,16 @@ exports.request = function(req, res) {
                                 if (err) {
                                     res.status(500).send(err);
                                     console.error(colors.red(err));
-                                } else {
+                                } else {*/
 
                                     // Send result
                                     res.status(201).send(result.rows[0]);
-                                }
+                                /*}
                             });
                         }
                     }
                 });
             }
         });
-    }
+    }*/
 };
