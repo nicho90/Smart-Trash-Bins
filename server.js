@@ -8,7 +8,8 @@ var pg = require('pg');
 var app = express();
 var httpPort = process.env.PORT || 5000;
 var httpsPort = httpPort + 443;
-var database_url = process.env.DATABASE_URL || 'postgres://Nicho@localhost:5432/giitde';
+//var database_url = process.env.DATABASE_URL || 'postgres://postgres:werockschools@localhost:5432/smarttrashbins';
+var database_url = process.env.DATABASE_URL || 'postgres://giitde:giitde@localhost:5432/smarttrashbin';
 exports.database_url = database_url;
 var mode = process.env.MODE || 'simple';
 
@@ -19,7 +20,7 @@ program
     .parse(process.argv);
 
 if (program.db_user !== "username") {
-    database_url = 'postgres://' + program.db_user + '@localhost:5432/giitde';
+    database_url = 'postgres://' + program.db_user + '@localhost:5432/smarttrashbins';
 }
 if (program.mode !== "mode") {
     mode = program.mode;

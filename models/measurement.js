@@ -4,9 +4,12 @@
  */
 module.exports = {
     "properties": {
-        // TODO
+        "measured_distance": {
+          "type":"number",
+          "greaterThan": 0
+        }
     },
     "required": [
-        // TODO
+        "measured_distance"
     ]
 };

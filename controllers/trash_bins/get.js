@@ -17,7 +17,7 @@ exports.request = function(req, res) {
         } else {
 
             // Prepare Query
-            var query = ""; // TODO: Get all attributes of the Trash Bin
+            var query = "SELECT * FROM trashbin WHERE id=$1"; // TODO: Get all attributes of the Trash Bin
 
             // Database query
             client.query(query, [
