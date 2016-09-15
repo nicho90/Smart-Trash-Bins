@@ -24,7 +24,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 // };
 
 // Creates a red marker with the coffee icon
-var redMarker = L.AwesomeMarkers.icon({
+/*var redMarker = L.AwesomeMarkers.icon({
     icon: 'trash',
     markerColor: 'red'
 });
@@ -42,17 +42,78 @@ var orangeMarker = L.AwesomeMarkers.icon({
 var greenMarker = L.AwesomeMarkers.icon({
     icon: 'folder-close',
     markerColor: 'green'
+});*/
+
+// Marker function
+function creatMarker (trashbin) {
+
+  var markerSettings = {
+    iconColor: 'black'
+  };
+  if(trashbin.wasttype == 'Papier') {
+    markerSettings.icon = 'files-o';
+  } else if(trashbin.wasttype == 'GelberSack'){
+    markerSettings.icon = 'recycle';
+  }else if(trashbin.wasttype == 'Restmüll'){
+    markerSettings.icon = 'trash';
+  }else if (trashbin.wasttype == 'Glas') {
+    markerSettings.icon = 'glass';
+  }else if (trashbin.wasttype == 'Bio') {
+    markerSettings.icon = 'glyphicon glyphicon-apple';
+  }else {
+    markerSettings.icon = 'fa fa-trash';
+  }
+
+  if(trashbin.waste_hight<=trashbin.green) {
+    markerSettings.markerColor = 'green';
+  } else if(trashbin.wastehight<=trashbin.orange) {
+    markerSettings.markerColor = 'orange';
+  } else if(trashbin.waste_hight<=trashbin.red) {
+    markerSettings.markerColor = 'red';
+  } else {
+    markerSettings.markerColor = 'red';
+  }
+
+  console.log(markerSettings);
+
+  var marker = L.AwesomeMarkers.icon({
+      icon: markerSettings.icon,
+      markerColor: markerSettings.markerColor
+  });
+
+  return marker;
+
+};
+
+// Icon allocation
+/*var Papier = L.AwesomeMarkers.icon({
+  icon: 'files-o ';
 });
 
+var Restmüll = L.AwesomeMarkers.icon({
+  icon: 'trash';
+});
+
+var GelberSack = L.AwesomeMarkers.icon({
+  icon: 'recycle';
+});
+
+var Glas = L.AwesomeMarkers.icon({
+  icon: 'glass';
+});
+
+var Bio = L.bootstrap.icon({
+  icon: 'glyphicon glyphicon-apple';
+});*/
 // L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
 
-var whiteMarker = L.AwesomeMarkers.icon({
+/*var whiteMarker = L.AwesomeMarkers.icon({
     icon: 'folder-close',
     markerColor: 'white',
     iconColor: 'black'
-});
+});*/
 
-L.marker([51.962377, 7.625153], { icon: darkredMarker }).addTo(map)
+/*L.marker([51.962377, 7.625153], { icon: darkredMarker }).addTo(map)
     .bindPopup('Dieser Mülleimer ist komplett voll!');
 L.marker([51.962377, 7.624153], { icon: redMarker }).addTo(map)
     .bindPopup('Dieser Mülleimer ist fast voll!');
@@ -61,7 +122,9 @@ L.marker([51.961377, 7.625153], { icon: orangeMarker }).addTo(map)
 L.marker([51.962377, 7.626153], { icon: greenMarker }).addTo(map)
     .bindPopup('Dieser Mülleimer ist nur ein wenig gefüllt!');
 L.marker([51.963377, 7.625153], { icon: whiteMarker }).addTo(map)
-    .bindPopup('Dieser Mülleimer ist praktisch leer!');
+    .bindPopup('Dieser Mülleimer ist praktisch leer!');*/
+
+
 
 function init() {
     $.ajax({
@@ -71,11 +134,12 @@ function init() {
         success: function(data){
             console.log(data);
             for(i=0;i<=data.length;i++) {
-
+              L.marker([data[i].latitude, data[i].longitude], { icon: creatMarker(data[i]) } ).addTo(map)
+             .bindPopup('Dieser Mülleimer ist fast voll! ' + 'Fundort: ' + data[i].comment );
             }
         }
     });
-}
+};
 
 init();
 
