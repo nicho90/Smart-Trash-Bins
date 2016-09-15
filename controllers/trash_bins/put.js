@@ -51,7 +51,7 @@ exports.request = function(req, res) {
                             var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14, picture=$15 WHERE id=$1 RETURNING *;" // TODO: Update all attributes of the Trash Bin
 
                             // Database query
-                            client.query(query,
+                            client.query(query, [
                                 req.params.trash_bin_id,
                                 req.body.latitude,
                                 req.body.longitude,

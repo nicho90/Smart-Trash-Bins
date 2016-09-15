@@ -48,6 +48,9 @@ module.exports = {
       "red":{
         "type": "number",
         "minimum":0
+      },
+      "picture": {
+	"type": "string"
       }
     },
     "required": [
@@ -63,6 +66,7 @@ module.exports = {
         "measuring_height",
         "green",
         "orange",
-        "red"
+        "red",
+	"picture"
     ]
 };
