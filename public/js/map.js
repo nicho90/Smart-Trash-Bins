@@ -72,9 +72,10 @@ function init() {
             console.log(data);
             for (i = 0; i <= data.length; i++) {
                 L.marker([data[i].latitude, data[i].longitude], {
-                        icon: createMarker(data[i])
-                    }).addTo(map)
-                    .bindPopup('<b>Standort</b>: ' + data[i].comment + '<br><img src="' + data[i].picture + '" class="picture">');
+                    icon: createMarker(data[i])
+                })
+                .bindPopup('<h1>Standort: ' + data[i].comment + '</h1><img src="' + data[i].picture + '" class="picture"/>')
+                .addTo(map);
             }
         }
     });
