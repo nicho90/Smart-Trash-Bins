@@ -17,6 +17,11 @@ html, body {
   font-weight: white
 }
 
+.picture {
+    width: auto;
+    height: 100px;
+}
+
 .legend {
     line-height: 18px;
     color: #555;
