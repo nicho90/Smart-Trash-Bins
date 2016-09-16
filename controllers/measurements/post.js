@@ -48,7 +48,7 @@ exports.request = function(req, res) {
                         } else {
 
                             var trash_bin = result.rows[0];
-                            var waste_height = trash_bin.sensor_height - trash_bin.measuring_height - req.body.measured_distance;
+                            var waste_height = trash_bin.measuring_height - req.body.measured_distance;
                             if (waste_height < 0) {
                                 waste_height = 0;
                             }
