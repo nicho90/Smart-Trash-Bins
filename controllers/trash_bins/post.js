@@ -13,7 +13,7 @@ var validate = ajv.compile(require('../../models/trash_bin'));
 exports.request = function(req, res) {
 
     // Validate input
-    if (!validate(req.body)) { // TODO: Check if all parameters were sent
+    if (!validate(req.body)) {
 
         console.error(colors.red('Validation error:', validate.errors[0].message));
         res.status(405).send(validate.errors);
@@ -30,7 +30,7 @@ exports.request = function(req, res) {
                 // Prepare Query
                 var query ="INSERT INTO trashbin (latitude, longitude, wastetype, size, trashcan, owner, comment, hight,sensor_height,measuring_height, green, orange, red, picture) " +
                   "VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) " +
-                  "RETURNING *;"; // TODO: Create a new Trash Bin
+                  "RETURNING *;";
 
                 // Database query
                 client.query(query, [

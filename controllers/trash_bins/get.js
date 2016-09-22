@@ -17,7 +17,7 @@ exports.request = function(req, res) {
         } else {
 
             // Prepare Query
-            var query = "SELECT * FROM trashbin WHERE id=$1"; // TODO: Get all attributes of the Trash Bin
+            var query = "SELECT * FROM trashbin WHERE id=$1";
 
             // Database query
             client.query(query, [
@@ -42,7 +42,7 @@ exports.request = function(req, res) {
                         if (req.query.latest_measurement && req.query.latest_measurement === 'true') {
 
                             // Prepare query
-                            var query = // TODO: Get the latest measurement of the Trash Bin
+                            var query = ""; // TODO: Get the latest measurement of the Trash Bin
 
                             // Database query
                             client.query(query, [
@@ -57,11 +57,7 @@ exports.request = function(req, res) {
                                     // Check if Measurement exists
                                     if (result.rows.length === 0) {
                                         _.extend(trash_bin, {
-                                            timestamp: null,
-                                            measured_distance: null,
-                                            measured_distance_unit: null,
-                                            measured_filling_height: null,
-                                            measured_filling_height_unit: null
+                                            timestamp: null
                                         });
                                     } else {
                                         _.extend(trash_bin, result.rows[0]);

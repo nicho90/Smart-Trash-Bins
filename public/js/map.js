@@ -4,25 +4,6 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Legende
-/*var legend = L.control({position: 'bottomright'});
-legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend');
-
-    var str = '<b><u>Legende</u>:</b>';
-    str = str + '<i style="background:green"></i> Leer<br>';
-    str = str + '<i style="background:orange"></i> Fast voll<br>';
-    str = str + '<i style="background:red"></i> Voll';
-
-//     var str = '<b><u>Legende</u>:</b>';
-//     str = str + '<i style="background:green"></i> Leer<br>';
-//     str = str + '<i style="background:orange"></i> Fast voll<br>';
-//     str = str + '<i style="background:red"></i> Voll';
-};*/
-
-
-// };
-
 // Create marker function
 function createMarker(trashbin) {
 
@@ -84,10 +65,10 @@ function init() {
             console.log(data);
             for (i = 0; i < data.length; i++) {
                 L.marker([data[i].latitude, data[i].longitude], {
-                    icon: createMarker(data[i])
-                })
-                .bindPopup('<h1>Standort: ' + data[i].comment + '</h1><img src="' + data[i].picture + '" class="picture"/>')
-                .addTo(map);
+                        icon: createMarker(data[i])
+                    })
+                    .bindPopup('<h1>Standort: ' + data[i].comment + '</h1><img src="' + data[i].picture + '" class="picture"/>')
+                    .addTo(map);
             }
         }
     });

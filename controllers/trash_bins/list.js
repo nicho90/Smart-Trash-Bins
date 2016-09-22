@@ -24,7 +24,7 @@ exports.request = function(req, res) {
             if (req.query.lat && req.query.lng) {
                 query = ""; // TODO: noch nicht!
             } else {
-                query = "SELECT * FROM trashbin;"; // TODO: List all trash_bins
+                query = "SELECT * FROM trashbin;";
             }
 
             // Database query
@@ -44,7 +44,7 @@ exports.request = function(req, res) {
                         async.forEachOf(trash_bins, function(trash_bin, key, callback) {
 
                                 // Prepare query
-                                var query = "SELECT * FROM measurements WHERE emp_id=$1 ORDER BY measuring_id DESC LIMIT 1; "; // TODO:
+                                var query = "SELECT * FROM measurements WHERE emp_id=$1 ORDER BY measuring_id DESC LIMIT 1; ";
 
                                 // Database query
                                 client.query(query, [

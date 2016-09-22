@@ -13,7 +13,7 @@ var validate = ajv.compile(require('../../models/trash_bin'));
 exports.request = function(req, res) {
 
     // Validate input
-    if (!validate(req.body)) { // TODO: Check if all parameters were sent
+    if (!validate(req.body)) {
 
         console.error(colors.red('Validation error:', validate.errors[0].message));
         res.status(405).send(validate.errors);
@@ -28,7 +28,7 @@ exports.request = function(req, res) {
             } else {
 
                 // Prepare query
-                var query = "SELECT id FROM trashbin WHERE id=$1;"; // TODO: Check if Trash Bin exists with requested trash_bin_id
+                var query = "SELECT id FROM trashbin WHERE id=$1;";
 
                 // Database query
                 client.query(query, [
@@ -48,7 +48,7 @@ exports.request = function(req, res) {
                         } else {
 
                             // Prepare query
-                            var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14, picture=$15 WHERE id=$1 RETURNING *;" // TODO: Update all attributes of the Trash Bin
+                            var query = "UPDATE trashbin SET latitude=$2, longitude=$3, wastetype=$4, size=$5, trashcan=$6, owner=$7, comment=$8, hight=$9,sensor_height=$10,measuring_height=$11, green=$12, orange=$13, red=$14, picture=$15 WHERE id=$1 RETURNING *;";
 
                             // Database query
                             client.query(query, [

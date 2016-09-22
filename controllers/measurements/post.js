@@ -13,7 +13,7 @@ var validate = ajv.compile(require('../../models/measurement'));
 exports.request = function(req, res) {
 
     // Validate input
-    if (!validate(req.body)) { // TODO: Check if all parameters were sent
+    if (!validate(req.body)) {
 
         console.error(colors.red('Validation error:', validate.errors[0].message));
         res.status(405).send(validate.errors);
@@ -28,7 +28,7 @@ exports.request = function(req, res) {
             } else {
 
                 // Prepare Query
-                var query = "SELECT * FROM trashbin WHERE id=$1;"; // TODO: Check if Trash Bin exists with requested trash_bin_id
+                var query = "SELECT * FROM trashbin WHERE id=$1;";
 
                 // Database query
                 client.query(query, [
@@ -56,7 +56,7 @@ exports.request = function(req, res) {
                             // Prepare Query
                             var query = "INSERT INTO measurements (timestep,waste_height,emp_id) " +
                               "VALUES (now(),$1,$2) " +
-                              "RETURNING *;"; // TODO: Create a new Measurement for the Trash Bin
+                              "RETURNING *;";
 
                             // Database query
                             client.query(query, [

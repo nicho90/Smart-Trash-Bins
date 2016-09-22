@@ -5,8 +5,8 @@
 module.exports = {
     "properties": {
         "measured_distance": {
-          "type":"number",
-          "greaterThan": 0
+            "type": "number",
+            "greaterThan": 0
         }
     },
     "required": [
