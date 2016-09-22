@@ -10,6 +10,15 @@
 
 Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
 
+#### In the local newspaper:
+
+![az](/public/images/az.jpg)
+
+*16.09.2016: Der intelligente Mülleimer erkennt Inhalt und Füllstand, der Messstand wird auf einer App angezeigt. Bauteile und Programme entwickelten Schüler der Anne-Frank-Gesamtschule im Rahmen ihrer Projektwoche. Foto: Klaus de Carné*
+
+
+(Full article: [http://www.azonline.de/Muensterland/Kreis-Coesfeld/2534384-Anne-Frank-Gesamtschueler-praesentieren-Ergebnisse-ihrer-Projektwoche-Muell-im-Forscher-Fokus](http://www.azonline.de/Muensterland/Kreis-Coesfeld/2534384-Anne-Frank-Gesamtschueler-praesentieren-Ergebnisse-ihrer-Projektwoche-Muell-im-Forscher-Fokus))
+
 ***
 
 ### Installation
