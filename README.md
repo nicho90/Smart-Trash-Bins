@@ -1,8 +1,14 @@
 # Smart-Trash-Bins
 
-Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
+
+[![license][licence-img]][licence-url]
+
+[licence-img]:https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square
+[licence-url]:https://opensource.org/licenses/MIT
 
 ![App](/public/images/app.gif) 
+
+Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
 
 ***
 
