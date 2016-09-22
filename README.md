@@ -2,6 +2,8 @@
 
 Teil des Projektes Smarte Mülleimer im Kurs *Geoinformatics in transdisciplinary education*
 
+![App](/public/images/app.gif) 
+
 ***
 
 ### Installation
@@ -17,11 +19,11 @@ b) `MODE=API node server.js` for webserver and REST-API or with flags `node serv
 
 ### Contributors
 
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Nicholas Schiestel](https://github.com/nicho90)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Boris Stöcker](https://github.com/Flugmango)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Cedric Lünnemann](https://github.com/CLue1988)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Shahzeib Tariq Jaswal](https://github.com/shahzeib)
-* Schüler der Anne-Frank-Gesamtschule Havixbeck
+:octocat: [Nicholas Schiestel](https://github.com/nicho90) (Server group)<br>
+:octocat: [Boris Stöcker](https://github.com/Flugmango) (App group)<br>
+:octocat: [Cedric Lünnemann](https://github.com/CLue1988) (Hardware group)<br>
+:octocat: [Shahzeib Tariq Jaswal](https://github.com/shahzeib) (Hardware group)<br>
+:busts_in_silhouette: Schüler der Anne-Frank-Gesamtschule Havixbeck
 
 ### License
 
